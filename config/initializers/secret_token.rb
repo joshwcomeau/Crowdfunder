@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Crowdfunder::Application.config.secret_key_base = 'c7cf1de3212ae9bc7ab91f6acdb5b4e517d5e65728d28d2c93bbf2dc84123f0870a1072ff0f73150111ba97424280e54771f01c19f4a7dbc95734a076e3a2622'
+Crowdfunder::Application.config.secret_key_base = 'fcfd190ce586cbb5c7457fa807143b81aefb23442571de88c3d189b751e61c78da4a584ed3363cdea36a4d0a50d383d60096fcf3a7212c87a045398ea515d3a4'
