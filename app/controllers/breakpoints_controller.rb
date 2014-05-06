@@ -1,0 +1,2 @@
+class BreakpointsController < ApplicationController
+end
