@@ -8,5 +8,7 @@
 	<p><%= b.breakpoint_description %></p>
 <% end %>
 
-<%= link_to 'Edit', edit_project_path %>
-<%= link_to 'Destroy', project_path, method: :delete %> 
+<%= link_to 'Edit', edit_project_path(@project) %>
+<%= link_to 'Destroy', project_path(@project), method: :delete %> 
+<br><br>
+<%= link_to "< Return home", projects_path %>
