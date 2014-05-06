@@ -1,7 +1,14 @@
 <h1>Projects#index</h1>
 <p>Find me in app/views/projects/index.html.erb</p>
+<%= link_to 'New', new_project_path %><br><br>
+
 <% @projects.each do |x| %>
-	<strong><%= x.name %></strong>
-	<%= x.description %>
-	<%= x.id %><br>
-	<% end %>
+<strong><%= x.name %></strong>
+<%= x.description %>
+<%= x.id %>
+
+<%= link_to 'Edit', edit_project_path(x.id) %>
+<%= link_to 'Destroy', project_path(x.id), method: :delete %> 
+<br>
+
+<% end %>
