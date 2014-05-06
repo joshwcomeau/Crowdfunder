@@ -2,3 +2,6 @@
 
 <%= @project.name %><br />
 <%= @project.description %>
+
+<%= link_to 'Edit', edit_project_path %>
+<%= link_to 'Destroy', project_path, method: :delete %> 
