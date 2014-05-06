@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Project.create!(
+  name: 'Accelerated Monkey wheels',
+  description: "The most accelerated monkey wheels ever made!!!!!!!!!!!111"
+)
