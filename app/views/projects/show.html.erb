@@ -8,6 +8,8 @@
 	<p><%= b.breakpoint_description %></p>
 <% end %>
 
+<h2><%= link_to "Make a Pledge!!", new_project_pledge_path(@project) %></h2>
+
 <%= link_to 'Edit', edit_project_path(@project) %>
 <%= link_to 'Destroy', project_path(@project), method: :delete %> 
 <br><br>
