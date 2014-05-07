@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :breakpoints
   has_many :projects, :through => :breakpoints
+  has_many :pledges
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
