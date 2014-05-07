@@ -13,8 +13,8 @@
 		<%= f.label :description %><br />
 		<%= f.text_area :description %>
 	</div>
-	<h4>Add Breakpoints:</h4>
-	<div id="breakpoints">
+	<h4>Add Tiers:</h4>
+	<div id="tiers">
     <%= f.fields_for :tiers do |tier| %>
       <%= render 'tiers', :f => tier %>
     <% end %>
