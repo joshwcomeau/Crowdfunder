@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
+    @array = [1,2,3]
   end
 
   def new
