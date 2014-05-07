@@ -51,3 +51,5 @@ group :development, :test do
 end
 
 gem 'cocoon'
+
+gem 'sorcery'
