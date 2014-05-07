@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
-  has_many :breakpoints
-  has_many :projects, :through => :breakpoints
+  has_many :tiers
+  has_many :projects, :through => :tiers
   has_many :pledges
 
   validates_confirmation_of :password

@@ -3,9 +3,9 @@
 <%= @project.name %><br />
 <%= @project.description %>
 
-<% @project.breakpoints.each do |b| %>
+<% @project.tiers.each do |b| %>
 	<h1><%= b.amount %></h1>
-	<p><%= b.breakpoint_description %></p>
+	<p><%= b.tier_description %></p>
 <% end %>
 
 <h2><%= link_to "Make a Pledge!!", new_project_pledge_path(@project) %></h2>
