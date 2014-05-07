@@ -8,7 +8,11 @@
 	<p><%= b.breakpoint_description %></p>
 <% end %>
 
+<% if current_user && current_user.id == @project.user_id %>
+
 <%= link_to 'Edit', edit_project_path(@project) %>
 <%= link_to 'Destroy', project_path(@project), method: :delete %> 
 <br><br>
+
+<% end %>
 <%= link_to "< Return home", projects_path %>
