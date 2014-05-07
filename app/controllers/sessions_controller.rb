@@ -10,7 +10,10 @@ class SessionsController < ApplicationController
       render :new, alert: "Email or password was invalid." 
     end
   end
-
+  def destroy
+    logout
+    redirect_to root_url
+  end
 
   private
   def session_params
