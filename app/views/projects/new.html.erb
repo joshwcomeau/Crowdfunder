@@ -21,6 +21,16 @@
 		<%= f.label :funding_goal %><br />
 		<%= f.text_field :funding_goal %>
 	</div>
+	
+	<h4>Add Breakpoints:</h4>
+	<div id="breakpoints">
+    <%= f.fields_for :breakpoints do |breakpoint| %>
+      <%= render 'breakpoints', :f => breakpoint %>
+    <% end %>
+    <div class="links">
+	    <%= link_to_add_association 'add breakpoint', f, :breakpoints, :partial => "breakpoints" %>
+	  </div>
+	</div>
 
 	<div class="action">
 		<%= f.submit %>
