@@ -1,11 +1,17 @@
 class ProjectsController < ApplicationController
+  
   def index
     @projects = Project.all
+
+    @projects.each do |x|
+      if x.finish_date == Date.today
+        x.destroy
+      end 
+    end 
   end
 
   def new
     @project = Project.new
-    # @breakpoint = @project.breakpoints.new
   end
 
   def show
