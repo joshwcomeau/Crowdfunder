@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
 
     @projects.each do |x|
       if x.finish_date == Date.today
-        x.destroy
+        #x.destroy
       end 
     end 
   end
