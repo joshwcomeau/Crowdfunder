@@ -9,9 +9,10 @@ End date: <%= @project.finish_date %><br />
 	<h1><%= b.amount %></h1>
 	<p><%= b.tier_description %></p>
 <% end %>
-<% if current_user && !current_user.id == @project.user_id %>
+<% if current_user && current_user.id != @project.user_id %>
 <h2><%= link_to "Make a Pledge!!", new_project_pledge_path(@project) %></h2>
 <% end %>
+
 <% if current_user && current_user.id == @project.user_id %>
 
   <%= link_to 'Edit', edit_project_path(@project) %>

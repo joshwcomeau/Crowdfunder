@@ -6,15 +6,16 @@
     <%= f.text_field :amount %>
   </div>
 
-  <h4>Add Tiers:</h4>
-  <div id="tiers">
-    <%= f.fields_for :tiers do |tier| %>
-      <%= render 'tiers', :f => tier %>
+  <h4>Select Reward:</h4>
+  <ul>
+    <% @project.tiers.each do |tier| %>
+      <li>
+        <label><%= f.radio_button(:tier_id, tier.id) %><strong><%= tier.amount %></strong> | <%= tier.tier_description %></label>
+      </li>
+
     <% end %>
-    <div class="links">
-      <%= link_to_add_association 'add tier', f, :tiers, :partial => "projects/tiers" %>
-    </div>
-  </div>
+  </ul>
+
   <div class="action">
     <%= f.submit %>
   </div>  
