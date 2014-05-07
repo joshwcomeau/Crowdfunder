@@ -9,8 +9,13 @@
 <% end %>
 
 <h2><%= link_to "Make a Pledge!!", new_project_pledge_path(@project) %></h2>
+<% if current_user && current_user.id == @project.user_id %>
 
-<%= link_to 'Edit', edit_project_path(@project) %>
-<%= link_to 'Destroy', project_path(@project), method: :delete %> 
+  <%= link_to 'Edit', edit_project_path(@project) %>
+  <%= link_to 'Destroy', project_path(@project), method: :delete %> 
+
+
+<% end %>
 <br><br>
+
 <%= link_to "< Return home", projects_path %>
