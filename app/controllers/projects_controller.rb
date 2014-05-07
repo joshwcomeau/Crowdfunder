@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    # @breakpoint = @project.breakpoints.new
   end
 
   def show

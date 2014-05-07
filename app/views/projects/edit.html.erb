@@ -15,10 +15,12 @@
 	</div>
 	<h4>Add Breakpoint:</h4>
 	<div id="breakpoints">
-		<div class="field">
-			<%= f.label :description %><br />
-			<%= f.text_area :description %>
-		</div>
+    <%= f.fields_for :breakpoints do |breakpoint| %>
+      <%= render 'breakpoints', :f => breakpoint %>
+    <% end %>
+    <div class="links">
+	    <%= link_to_add_association 'add breakpoint', f, :breakpoints, :partial => "breakpoints" %>
+	  </div>
 	</div>
 	<div class="action">
 		<%= f.submit %>
