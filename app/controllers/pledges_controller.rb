@@ -1,6 +1,7 @@
 class PledgesController < ApplicationController
   def new
-    @pledge = Pledge.new
+    @project = Project.find(params[:project_id])
+    @pledge = @project.pledges.new
   end
 
   def create
