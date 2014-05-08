@@ -27,11 +27,16 @@ $(document).ready(function(){
 	});
 
   $(".project_reward_tier").click(function() {
+
     var tierText = $(this).children(".tier_description").html(),
-        tierAmount = $(this).children(".tier_amount").html();
+    tierAmount = $(this).children(".tier_amount").html();
 
     $("#selected_reward").html(tierText);
-    $("#pledge_amount").val(tierAmount);
+    $("#pledge_amount").val(tierAmount);      
+    $(".pledge_form").show(500);
+
+
+
     
 
 
