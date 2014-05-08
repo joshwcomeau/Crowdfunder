@@ -32,6 +32,7 @@
 			<div class="field">
 				<%= f.label :amount %><br>
 				<%= f.text_field :amount %>
+				<%= f.hidden_field :tier_id %>
 			</div>
 
 			<h4>Selected Reward: <span id="selected_reward"></span></h4>
@@ -49,7 +50,7 @@
 
 	<div class="project_reward_tiers">
 		<% @project.tiers.each do |b| %>
-		<div class="project_reward_tier">
+		<div class="project_reward_tier" id="tier_<%= b.id %>">
 			Pledge $<span class="tier_amount"><%= b.amount %></span> or more<br>
 			Backers: <%= b.pledges.count %><br>
 
