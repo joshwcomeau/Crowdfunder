@@ -1,23 +1,27 @@
-<h1>Project</h1>
+<div class="individual_project">
+	<table>
+		<h1><%= @project.name %></h1>
+		
+			<tr><td>Description:</td> <td><%= @project.description %></td></tr>
+			<tr><td>Start date:</td><td> <%= @project.start_date %></td></tr>
+			<tr><td>End date: </td><td><%= @project.finish_date %></td></tr>
+	
+	</table>
+		<% @project.tiers.each do |b| %>
+		<h1><%= b.amount %></h1>
+		<p><%= b.tier_description %></p>
+		<% end %>
+		<% if current_user && current_user.id != @project.user_id %>
+		<h2><%= link_to "Make a Pledge!!", new_project_pledge_path(@project) %></h2>
+		<% end %>
 
-Name: <%= @project.name %><br />
-Description: <%= @project.description %><br />
-Start date: <%= @project.start_date %> ||||  
-End date: <%= @project.finish_date %><br />
+		<% if current_user && current_user.id == @project.user_id %>
 
-<% @project.tiers.each do |b| %>
-	<h1><%= b.amount %></h1>
-	<p><%= b.tier_description %></p>
-<% end %>
-<% if current_user && current_user.id != @project.user_id %>
-<h2><%= link_to "Make a Pledge!!", new_project_pledge_path(@project) %></h2>
-<% end %>
+		<%= link_to 'Edit', edit_project_path(@project) %>
+		<%= link_to 'Destroy', project_path(@project), method: :delete %> 
+		<% end %>
+		<br><br>
 
-<% if current_user && current_user.id == @project.user_id %>
-
-  <%= link_to 'Edit', edit_project_path(@project) %>
-  <%= link_to 'Destroy', project_path(@project), method: :delete %> 
-<% end %>
-<br><br>
-
-<%= link_to "< Return home", projects_path %>
+		<%= link_to "< Return home", projects_path %>
+	
+</div>
