@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   
   def index
-    @projects = Project.all
+    @projects = Project.page(params[:page])
 
     @projects.each do |x|
       if x.finish_date == Date.today
