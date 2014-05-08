@@ -29,9 +29,12 @@ $(document).ready(function(){
   $(".project_reward_tier").click(function() {
 
     var tierText = $(this).children(".tier_description").html(),
-    tierAmount = $(this).children(".tier_amount").html();
+    tierAmount = $(this).children(".tier_amount").html(),
+    tierID = $(this).attr("id").split("_")[1];
+
 
     $("#selected_reward").html(tierText);
+    $("#pledge_tier_id").val(tierID);
     $("#pledge_amount").val(tierAmount);      
     $(".pledge_form").show(500);
 
