@@ -11,7 +11,11 @@
 		<div class="project_reward_tiers">
 			<% @project.tiers.each do |b| %>
 			<div class="project_reward_tier">
-				<%= b.amount %><br>
+				Pledge $<%= b.amount %> or more<br>
+				
+				
+				Backers: <%= b.pledges.count %>
+				<br>
 				<%= b.tier_description %><br>
 			</div>
 			<% end %>		

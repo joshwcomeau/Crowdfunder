@@ -2,7 +2,6 @@ class ProjectsController < ApplicationController
   
   def index
     @projects = Project.all
-
     @projects.each do |x|
       if x.finish_date == Date.today
         #x.destroy

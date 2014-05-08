@@ -9,7 +9,7 @@ class PledgesController < ApplicationController
     @user = current_user
     @pledge = @user.pledges.new(pledge_params)
     if @pledge.save
-      redirect_to projects_path
+      redirect_to project_path(params[:project_id])
     else
       render :new
     end
