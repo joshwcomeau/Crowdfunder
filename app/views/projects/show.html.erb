@@ -9,6 +9,13 @@
 	<h1><%= b.amount %></h1>
 	<p><%= b.tier_description %></p>
 <% end %>
+
+<% if current_user %>
+	<% current_user.pledges.each do |p| %>
+		<%= "You've already backed this project" if p.project.id == @project.id %>
+	<% end %>
+<% end %>
+
 <% if current_user && current_user.id != @project.user_id %>
 <h2><%= link_to "Make a Pledge!!", new_project_pledge_path(@project) %></h2>
 <% end %>
