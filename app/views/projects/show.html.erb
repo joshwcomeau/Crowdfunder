@@ -1,9 +1,9 @@
-<h1>Project</h1>
+<h1><%= @project.name %></h1>
 
-Name: <%= @project.name %><br />
-Description: <%= @project.description %><br />
-Start date: <%= @project.start_date %> ||||  
-End date: <%= @project.finish_date %><br />
+<p><%= @project.description %></p>
+
+
+<p>Project ends: <%= @project.finish_date %><br />
 
 <% @project.tiers.each do |b| %>
 	<h1><%= b.amount %></h1>

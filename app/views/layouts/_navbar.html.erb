@@ -1,0 +1,15 @@
+<nav class="top-bar" data-topbar>
+	<ul class='title-area'>
+		<li class='name'>
+			<h1><a href='#'>Crowdfunder</a></h1>
+		</li>
+	</ul>
+	<section class='top-bar-section'>
+		<% if !current_user %>
+		<%= link_to 'Login', new_session_path %> | <%= link_to 'Sign up', new_user_path %><br><br>
+		<% end %>
+		<% if current_user %>
+		Logged in as <%= current_user.email %> | <%= link_to 'Log out', session_path(current_user), method: :delete %>
+		<% end %>
+	</section>
+</nav>
