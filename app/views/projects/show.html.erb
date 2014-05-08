@@ -38,7 +38,7 @@
 			<div class="action">
 				<%= f.submit %>
 			</div>  
-			
+
 			<% end %>
 
 
@@ -57,18 +57,10 @@
 			<span class="tier_description"><%= b.tier_description %></span>
 			<% @project.update_column(:funded, @tier_total_money_backed) %>
 		</div>
-		<% end %>	
-
-		<% end %>		
-
-		
-		
-		
+		<% end %>			
 	</div>
 	<%= render 'layouts/editdestroyproject' %>
 	<%= link_to "< Return home", projects_path %>
-
-
 	<script>
 	</script>
 
