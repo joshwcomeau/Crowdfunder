@@ -1,27 +1,23 @@
-<div class="individual_project">
-	<table>
-		<h1><%= @project.name %></h1>
-		
-			<tr><td>Description:</td> <td><%= @project.description %></td></tr>
-			<tr><td>Start date:</td><td> <%= @project.start_date %></td></tr>
-			<tr><td>End date: </td><td><%= @project.finish_date %></td></tr>
-	
+<div class="individual_project_immediate_details">
+	<table class="project_details">
+		<h1><%= @project.name %></h1>		
+		<tr><td>Start date:</td><td> <%= @project.start_date %></td></tr>
+		<tr><td>End date: </td><td><%= @project.finish_date %></td></tr>	
 	</table>
-		<% @project.tiers.each do |b| %>
-		<h1><%= b.amount %></h1>
-		<p><%= b.tier_description %></p>
-		<% end %>
-		<% if current_user && current_user.id != @project.user_id %>
-		<h2><%= link_to "Make a Pledge!!", new_project_pledge_path(@project) %></h2>
-		<% end %>
+	<div class="inner_project_page"><br>
+		<div class="project_text_description">
+			<%= @project.description %>
+		</div>
+		<div class="project_reward_tiers">
+			<% @project.tiers.each do |b| %>
+			<div class="project_reward_tier">
+				<%= b.amount %><br>
+				<%= b.tier_description %><br>
+			</div>
+			<% end %>		
+		</div>
+	</div>
+	<%= render 'layouts/editdestroyproject' %>
+	<%= link_to "< Return home", projects_path %>
 
-		<% if current_user && current_user.id == @project.user_id %>
-
-		<%= link_to 'Edit', edit_project_path(@project) %>
-		<%= link_to 'Destroy', project_path(@project), method: :delete %> 
-		<% end %>
-		<br><br>
-
-		<%= link_to "< Return home", projects_path %>
 	
-</div>

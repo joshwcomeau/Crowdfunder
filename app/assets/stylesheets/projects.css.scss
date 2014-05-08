@@ -29,13 +29,37 @@
 	background-color:#d5d080;
 }
 
-.individual_project {
-	background-color:#94d58d;
+.individual_project_immediate_details {
+	background-color:#D4F8D8;
 	text-align:center;
 }
 
-table {
+.project_details {
+	background-color:#D6D9B9;
 	border:1px solid;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.project_reward_tiers {
+	float:right;
+	background-color:#E6F0D9;
+}
+.project_reward_tier {
+	height:200px;
+	width:200px;
+}
+
+.project_text_description {
+	float:left;
+	margin-left:20px;
+}
+
+.inner_project_page {
+	border-radius:20px;
+	background-color:#F8F6D4;
+	width:80%;
+	height:500px;
 	margin-left:auto;
 	margin-right:auto;
 }
