@@ -25,4 +25,13 @@ $(document).ready(function(){
 	$('.project_reward_tier').mouseleave(function(){
 		$(this).css("background-color", "#E6F0D9");
 	});
+
+  $(".project_reward_tier").click(function() {
+    var tierText = $(this).children(".tier_description").html();
+    $("#selected_reward").html(tierText);
+    
+
+
+  });
+
 });
