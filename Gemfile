@@ -57,3 +57,5 @@ gem 'sorcery'
 
 gem 'carrierwave'
 gem 'rmagick'
+
+gem 'kaminari'
