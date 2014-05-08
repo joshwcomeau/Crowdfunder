@@ -1,4 +1,5 @@
-class Breakpoint < ActiveRecord::Base
+class Tier < ActiveRecord::Base
 	belongs_to :project
 	belongs_to :user
+
 end

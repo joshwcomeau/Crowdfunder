@@ -11,19 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507211842) do
+ActiveRecord::Schema.define(version: 20140507223447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "breakpoints", force: true do |t|
-    t.integer  "project_id"
-    t.integer  "user_id"
-    t.decimal  "amount"
-    t.text     "breakpoint_description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "pledges", force: true do |t|
     t.decimal  "amount"
@@ -31,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140507211842) do
     t.datetime "updated_at"
     t.integer  "project_id"
     t.integer  "user_id"
-    t.integer  "breakpoint_id"
+    t.integer  "tier_id"
   end
 
   create_table "projects", force: true do |t|
@@ -43,6 +34,15 @@ ActiveRecord::Schema.define(version: 20140507211842) do
     t.date     "finish_date"
     t.decimal  "funding_goal"
     t.integer  "user_id"
+  end
+
+  create_table "tiers", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.decimal  "amount"
+    t.text     "tier_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

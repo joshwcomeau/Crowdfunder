@@ -22,13 +22,13 @@
 		<%= f.text_field :funding_goal %>
 	</div>
 	
-	<h4>Add Breakpoints:</h4>
-	<div id="breakpoints">
-    <%= f.fields_for :breakpoints do |breakpoint| %>
-      <%= render 'breakpoints', :f => breakpoint %>
+	<h4>Add Tiers:</h4>
+	<div id="tiers">
+    <%= f.fields_for :tiers do |tier| %>
+      <%= render 'tiers', :f => tier %>
     <% end %>
     <div class="links">
-	    <%= link_to_add_association 'add breakpoint', f, :breakpoints, :partial => "breakpoints" %>
+	    <%= link_to_add_association 'add tier', f, :tiers, :partial => "tiers" %>
 	  </div>
 	</div>
 

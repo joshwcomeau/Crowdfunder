@@ -1,0 +1,24 @@
+<h1>Enter your pledge amount:</h1>
+
+<%= form_for [@project, @pledge] do |f| %>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+
+  <h4>Select Reward:</h4>
+  <ul>
+    <% @project.tiers.each do |tier| %>
+      <li>
+        <label><%= f.radio_button(:tier_id, tier.id) %><strong><%= tier.amount %></strong> | <%= tier.tier_description %></label>
+      </li>
+
+    <% end %>
+  </ul>
+
+  <div class="action">
+    <%= f.submit %>
+  </div>  
+  
+<% end %>
+

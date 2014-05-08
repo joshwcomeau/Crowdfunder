@@ -1,11 +1,17 @@
 class ProjectsController < ApplicationController
+  
   def index
     @projects = Project.all
+
+    @projects.each do |x|
+      if x.finish_date == Date.today
+        #x.destroy
+      end 
+    end 
   end
 
   def new
     @project = Project.new
-    # @breakpoint = @project.breakpoints.new
   end
 
   def show
@@ -42,6 +48,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :start_date, :finish_date, :funding_goal, breakpoints_attributes: [:id, :amount, :breakpoint_description])
+    params.require(:project).permit(:name, :description, :start_date, :finish_date, :funding_goal, tiers_attributes: [:id, :amount, :tier_description])
   end
 end
