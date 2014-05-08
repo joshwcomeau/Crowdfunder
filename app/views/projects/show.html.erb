@@ -7,7 +7,7 @@
 			<tr><td>Days remaining: </td><td><%= @days_remaining %></td></tr>	
 		</table>
 		<div class="project_funding large-6 columns">
-		test
+		<%= @project.funded %>
 		</div>
 	</div>
 </div>
@@ -31,10 +31,12 @@
 		<div class="project_reward_tier">
 			Pledge $<%= b.amount %> or more<br>
 			Backers: <%= b.pledges.count %><br>
-			Sum: <%= b.pledges.inject(0) {|sum, pledge| sum + pledge.amount} %><br>
+			Sum: <%= @tier_total_money_backed = b.pledges.inject(0) {|sum, pledge| sum + pledge.amount} %><br>
 			<%= b.tier_description %><br>
+			<% @project.update_column(:funded, @tier_total_money_backed) %>
 		</div>
 		<% end %>	
+
 		<% end %>		
 	</div>
 </div>
