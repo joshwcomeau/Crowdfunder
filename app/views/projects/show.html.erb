@@ -8,6 +8,15 @@
 	<div class="inner_project_page"><br>
 		<div class="project_text_description">
 			<%= @project.description %>
+			<% if current_user %>
+				<% current_user.pledges.each do |p| %>
+					<% if p.project.id == @project.id %>
+						<%= 		"You've already backed this project." %>
+						<% break %>
+					<% end %>
+				<% end %>
+			<% end %>
+
 		</div>
 		
 		<%= link_to new_project_pledge_path(@project) do %>
@@ -26,4 +35,3 @@
 	</div>
 	<%= render 'layouts/editdestroyproject' %>
 	<%= link_to "< Return home", projects_path %>
-

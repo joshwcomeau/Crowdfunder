@@ -30,6 +30,11 @@ GEM
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
     builder (3.1.4)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     cocoon (1.2.6)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -57,6 +62,9 @@ GEM
     json (1.8.1)
     jwt (0.1.11)
       multi_json (>= 1.5)
+    kaminari (0.15.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -95,6 +103,7 @@ GEM
     rake (10.3.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    rmagick (2.13.2)
     rspec-collection_matchers (0.0.4)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.0.0.beta2)
@@ -152,14 +161,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  carrierwave
   cocoon
   coffee-rails (~> 4.0.0)
   foundation-rails
   jbuilder (~> 1.2)
   jquery-rails
+  kaminari
   pg
   quiet_assets
   rails (= 4.0.4)
+  rmagick
   rspec-rails (~> 3.0.0.beta)
   sass-rails (~> 4.0.2)
   sdoc

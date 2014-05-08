@@ -11,7 +11,7 @@ class PledgesController < ApplicationController
     if @pledge.save
       redirect_to project_path(params[:project_id])
     else
-      render :new
+      redirect_to project_path(params[:project_id]), alert: "Failed to make pledge! D:"
     end
   end
 

@@ -10,8 +10,11 @@ class UsersController < ApplicationController
     else
       render :new
     end
-  end 
+  end
 
+  def show 
+    @user = User.find(params[:id])
+  end
 
   private
   def user_params
