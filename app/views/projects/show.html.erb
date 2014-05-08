@@ -1,56 +1,61 @@
-<div class="individual_project_immediate_details">
-	<table class="project_details">
-		<h1><%= @project.name %></h1>		
-		<tr><td>Start date:</td><td> <%= @project.start_date %></td></tr>
-		<tr><td>End date: </td><td><%= @project.finish_date %></td></tr>
-		<tr><td>Days remaining: </td><td><%= @days_remaining %></td></tr>	
-	</table>
-	<div class="inner_project_page"><br>
-		<% if flash[:alert] %>
-			<div class="alert" style="color: red; font-size: 3em;"><%= flash[:alert] %></div>
-		<% end %>
-		<div class="project_text_description">
-			<%= @project.description %>
-			<% if current_user %>
-				<% current_user.pledges.each do |p| %>
-					<% if p.project.id == @project.id %>
-						<%= 		"You've already backed this project." %>
-						<% break %>
-					<% end %>
+	<div class='row'>
+		<table class="project_details large-6 columns">
+			<h1><%= @project.name %></h1>		
+			<tr><td>Start date:</td><td> <%= @project.start_date %></td></tr>
+			<tr><td>End date: </td><td><%= @project.finish_date %></td></tr>
+			<tr><td>Days remaining: </td><td><%= @days_remaining %></td></tr>	
+		</table>
+		<div class="project_funding large-6 columns">
+		test
+		</div>
+	</div>
+</div>
+<div class="inner_project_page"><br>
+	<% if flash[:alert] %>
+		<div class="alert" style="color: red; font-size: 3em;"><%= flash[:alert] %></div>
+	<% end %>
+	<div class="project_text_description">
+		<%= @project.description %>
+		<% if current_user %>
+			<% current_user.pledges.each do |p| %>
+				<% if p.project.id == @project.id %>
+					<%= "You've already backed this project." %>
+				<% break %>
 				<% end %>
 			<% end %>
-			<div class="pledge_form" style="text-align: left; margin-top: 50px; display: none;">
-				
-				<%= form_for [@project, @pledge] do |f| %>
-					<h2>Make a Pledge</h2>
-				  <div class="field">
-				    <%= f.label :amount %><br>
-				    <%= f.text_field :amount %>
-				  </div>
+		<% end %>
 
-				  <h4>Selected Reward: <span id="selected_reward"></span></h4>
-				  <div class="action">
-				    <%= f.submit %>
-				  </div>  
-				  
-				<% end %>
-
-
-			</div>
-		</div>
-
-		
-		<div class="project_reward_tiers">
-			<% @project.tiers.each do |b| %>
-			<div class="project_reward_tier">
-				Pledge $<span class="tier_amount"><%= b.amount %></span> or more<br>
-				Backers: <%= b.pledges.count %>
-				<br>
-				<span class="tier_description"><%= b.tier_description %></span><br>
-			</div>
-			<% end %>	
+		<div class="pledge_form" style="text-align: left; margin-top: 50px; display: none;">
 			
+			<%= form_for [@project, @pledge] do |f| %>
+				<h2>Make a Pledge</h2>
+			  <div class="field">
+			    <%= f.label :amount %><br>
+			    <%= f.text_field :amount %>
+			  </div>
+
+			  <h4>Selected Reward: <span id="selected_reward"></span></h4>
+			  <div class="action">
+			    <%= f.submit %>
+			  </div>  
+			  
+			<% end %>
+
+
 		</div>
+
+	</div>
+
+
+	<div class="project_reward_tiers">
+		<% @project.tiers.each do |b| %>
+		<div class="project_reward_tier">
+			Pledge $<span class="tier_amount"><%= b.amount %></span> or more<br>
+			Backers: <%= b.pledges.count %><br>
+			Sum: <%= b.pledges.inject(0) {|sum, pledge| sum + pledge.amount} %><br>
+			<span class="tier_description"><%= b.tier_description %></span><br>
+		</div>
+		<% end %>	
 	</div>
 	<%= render 'layouts/editdestroyproject' %>
 	<%= link_to "< Return home", projects_path %>
@@ -58,6 +63,7 @@
 
 	<script>
 	</script>
+
 
 
 
