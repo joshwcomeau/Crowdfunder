@@ -31,6 +31,11 @@ GEM
       bcrypt (>= 3.1.3)
     builder (3.1.4)
     cancancan (1.7.1)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     cocoon (1.2.6)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -93,6 +98,7 @@ GEM
     rake (10.3.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    rmagick (2.13.2)
     rspec-collection_matchers (0.0.4)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.0.0.beta2)
@@ -151,6 +157,7 @@ PLATFORMS
 
 DEPENDENCIES
   cancancan (~> 1.7)
+  carrierwave
   cocoon
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
@@ -158,6 +165,7 @@ DEPENDENCIES
   pg
   quiet_assets
   rails (= 4.0.4)
+  rmagick
   rspec-rails (~> 3.0.0.beta)
   sass-rails (~> 4.0.2)
   sdoc
