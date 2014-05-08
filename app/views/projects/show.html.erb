@@ -1,37 +1,42 @@
 <div class="individual_project_immediate_details">
-	<table class="project_details">
-		<h1><%= @project.name %></h1>		
-		<tr><td>Start date:</td><td> <%= @project.start_date %></td></tr>
-		<tr><td>End date: </td><td><%= @project.finish_date %></td></tr>
-		<tr><td>Days remaining: </td><td><%= @days_remaining %></td></tr>	
-	</table>
-	<div class="inner_project_page"><br>
-		<div class="project_text_description">
-			<%= @project.description %>
-			<% if current_user %>
-				<% current_user.pledges.each do |p| %>
-					<% if p.project.id == @project.id %>
-						<%= 		"You've already backed this project." %>
-						<% break %>
-					<% end %>
-				<% end %>
-			<% end %>
-
-		</div>
-		
-		<%= link_to new_project_pledge_path(@project) do %>
-		
-		<div class="project_reward_tiers">
-			<% @project.tiers.each do |b| %>
-			<div class="project_reward_tier">
-				Pledge $<%= b.amount %> or more<br>
-				Backers: <%= b.pledges.count %>
-				<br>
-				<%= b.tier_description %><br>
-			</div>
-			<% end %>	
-			<% end %>		
+	<div class='row'>
+		<table class="project_details large-6 columns">
+			<h1><%= @project.name %></h1>		
+			<tr><td>Start date:</td><td> <%= @project.start_date %></td></tr>
+			<tr><td>End date: </td><td><%= @project.finish_date %></td></tr>
+			<tr><td>Days remaining: </td><td><%= @days_remaining %></td></tr>	
+		</table>
+		<div class="project_funding large-6 columns">
+		test
 		</div>
 	</div>
-	<%= render 'layouts/editdestroyproject' %>
-	<%= link_to "< Return home", projects_path %>
+</div>
+<div class="inner_project_page"><br>
+	<div class="project_text_description">
+		<%= @project.description %>
+		<% if current_user %>
+		<% current_user.pledges.each do |p| %>
+		<% if p.project.id == @project.id %>
+		<%= "You've already backed this project." %>
+		<% break %>
+		<% end %>
+		<% end %>
+		<% end %>
+	</div>
+
+	<%= link_to new_project_pledge_path(@project) do %>
+
+	<div class="project_reward_tiers">
+		<% @project.tiers.each do |b| %>
+		<div class="project_reward_tier">
+			Pledge $<%= b.amount %> or more<br>
+			Backers: <%= b.pledges.count %><br>
+			Sum: <%= b.pledges.inject(0) {|sum, pledge| sum + pledge.amount} %><br>
+			<%= b.tier_description %><br>
+		</div>
+		<% end %>	
+		<% end %>		
+	</div>
+</div>
+<%= render 'layouts/editdestroyproject' %>
+<%= link_to "< Return home", projects_path %>
