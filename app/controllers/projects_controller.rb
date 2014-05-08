@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @days_remaining = (@project.finish_date - @project.start_date).to_i
   end
 
   def create

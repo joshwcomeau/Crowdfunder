@@ -2,26 +2,28 @@
 	<table class="project_details">
 		<h1><%= @project.name %></h1>		
 		<tr><td>Start date:</td><td> <%= @project.start_date %></td></tr>
-		<tr><td>End date: </td><td><%= @project.finish_date %></td></tr>	
+		<tr><td>End date: </td><td><%= @project.finish_date %></td></tr>
+		<tr><td>Days remaining: </td><td><%= @days_remaining %></td></tr>	
 	</table>
 	<div class="inner_project_page"><br>
 		<div class="project_text_description">
 			<%= @project.description %>
 		</div>
+		
+		<%= link_to new_project_pledge_path(@project) do %>
+		
 		<div class="project_reward_tiers">
 			<% @project.tiers.each do |b| %>
 			<div class="project_reward_tier">
 				Pledge $<%= b.amount %> or more<br>
-				
-				
 				Backers: <%= b.pledges.count %>
 				<br>
 				<%= b.tier_description %><br>
 			</div>
+			<% end %>	
 			<% end %>		
 		</div>
 	</div>
 	<%= render 'layouts/editdestroyproject' %>
 	<%= link_to "< Return home", projects_path %>
 
-	
