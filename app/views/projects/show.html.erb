@@ -43,7 +43,7 @@
 		<div class="project_reward_tiers">
 			<% @project.tiers.each do |b| %>
 			<div class="project_reward_tier">
-				Pledge $<%= b.amount %> or more<br>
+				Pledge $<span class="tier_amount"><%= b.amount %></span> or more<br>
 				Backers: <%= b.pledges.count %>
 				<br>
 				<span class="tier_description"><%= b.tier_description %></span><br>
@@ -56,14 +56,7 @@
 	<%= link_to "< Return home", projects_path %>
 
 
-	// <script>
-	// 	$(".project_reward_tier").click(function() {
-	// 		var tierText = $(this).children(".tier_description").html();
-	// 		$("#selected_reward").html(tierText);
-			
-
-
-	// 	});
+	<script>
 	</script>
 
 
