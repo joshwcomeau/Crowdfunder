@@ -17,3 +17,12 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function(){
+	$('.project_reward_tier').mouseenter(function(){
+		$(this).css("background-color", "#97d596");
+	});
+	$('.project_reward_tier').mouseleave(function(){
+		$(this).css("background-color", "#E6F0D9");
+	});
+});
