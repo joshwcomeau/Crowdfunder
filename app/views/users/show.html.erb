@@ -1,0 +1,10 @@
+<h1><%= @user.email %></h1>
+
+<h3>Currently backed projects</h3>
+
+<ul>
+	<% @user.projects.each do |p| %>
+		<li><%= p.name %><br>
+			<%= p.desc %></li>
+	<% end %>
+</ul>
