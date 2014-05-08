@@ -51,7 +51,7 @@
 
 			Sum: <%= @tier_total_money_backed = b.pledges.inject(0) {|sum, pledge| sum + pledge.amount} %><br>
 			<span class="tier_description"><%= b.tier_description %></span>
-			<% @project.update_column(:funded, @tier_total_money_backed) %>
+			
 		</div>
 		<% end %>			
 	</div>

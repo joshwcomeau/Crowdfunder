@@ -5,10 +5,18 @@ class PledgesController < ApplicationController
   end
 
   def create
+    @project = Project.find(params[:project_id])
     params[:pledge][:project_id] = params[:project_id]
+    
     @user = current_user
     @pledge = @user.pledges.new(pledge_params)
     if @pledge.save
+      if @project.funded
+        funded = @project.funded + @pledge.amount
+      else
+        funded = @pledge.amount
+      end
+      @project.update_column(:funded, funded) 
       redirect_to project_path(params[:project_id])
     else
       redirect_to project_path(params[:project_id]), alert: "Failed to make pledge!"
