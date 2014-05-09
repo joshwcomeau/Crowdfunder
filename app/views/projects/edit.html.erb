@@ -13,6 +13,8 @@
 		<%= f.label :description %><br />
 		<%= f.text_area :description %>
 	</div>
+	<label>Project Image</label>
+    <%= f.file_field :image %>
 	<h4>Add Tiers:</h4>
 	<div id="tiers">
     <%= f.fields_for :tiers do |tier| %>
