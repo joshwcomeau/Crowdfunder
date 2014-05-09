@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    #@project.image = params[:file]
   end
 
   def show
@@ -22,6 +23,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    binding.pry
     @project = Project.new(project_params)
     @project.user_id = current_user.id if current_user
     if @project.save
@@ -51,6 +53,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :start_date, :finish_date, :funding_goal, tiers_attributes: [:id, :amount, :tier_description])
+    params.require(:project).permit(:name, :description, :start_date, :finish_date, :funding_goal, :image, tiers_attributes: [:id, :amount, :tier_description])
   end
 end
