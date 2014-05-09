@@ -49,6 +49,7 @@ gem 'quiet_assets'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'pry'
 end
 
 gem 'cocoon'
@@ -56,6 +57,7 @@ gem 'cocoon'
 gem 'sorcery'
 
 gem 'carrierwave'
-#gem 'rmagick'
+# gem 'rmagick'
+gem "mini_magick"
 
 gem 'kaminari'
