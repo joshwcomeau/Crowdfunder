@@ -10,7 +10,13 @@
   width: 50%;
   
 }
-
+.project_funding {
+	padding-top:4%;
+	border:1px solid;
+	padding-bottom:2.8%;
+	background-color:#c4db97;
+	text-align:center;
+}
 .project_index {
 	text-align:center;
 	background-color:#d5c3d4;
@@ -46,9 +52,10 @@
 .project_reward_tiers {
 	float:right;
 	background-color:#E6F0D9;
+	text-align:center;
 }
 .project_reward_tier {
-	height:200px;
+	height:100%;
 	width:200px;
 }
 

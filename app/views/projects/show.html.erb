@@ -6,7 +6,8 @@
 			<tr><td>Days remaining: </td><td><%= @days_remaining %></td></tr>	
 		</table>
 		<div class="project_funding large-6 columns">
-			<%= @project.funded %>
+			<strong>Total money raised:</strong> $<%= @project.funded %><br><br>
+			<strong>Funding goal:</strong> $<%= @project.funding_goal %>
 		</div>
 	</div>
 </div>
@@ -18,7 +19,7 @@
 		<%= @project.description %>
 		<% if current_user %>
 		<% current_user.pledges.each do |p| %>
-		<% if p.project.id == @project.id %>
+		<% if p.project.id == @project.id %><br>
 		<%= "You've already backed this project." %>
 		<% break %>
 		<% end %>
@@ -45,12 +46,12 @@
 
 	<div class="project_reward_tiers">
 		<% @project.tiers.each do |b| %>
-		<div class="project_reward_tier" id="tier_<%= b.id %>">
-			Pledge $<span class="tier_amount"><%= b.amount %></span> or more<br>
-			Backers: <%= b.pledges.count %><br>
+		<br><div class="project_reward_tier" id="tier_<%= b.id %>">
+			Pledge $<span class="tier_amount"><%= b.amount %></span> or more<br><br>
+			Backers: <%= b.pledges.count %><br><br>
 
-			Sum: <%= @tier_total_money_backed = b.pledges.inject(0) {|sum, pledge| sum + pledge.amount} %><br>
-			<span class="tier_description"><%= b.tier_description %></span>
+			Sum: <%= @tier_total_money_backed = b.pledges.inject(0) {|sum, pledge| sum + pledge.amount} %><br><br>
+			<span class="tier_description"><strong>Reward:</strong> <%= b.tier_description %></span><br><br><br>
 			
 		</div>
 		<% end %>			
