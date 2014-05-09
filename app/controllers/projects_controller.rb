@@ -23,7 +23,6 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    binding.pry
     @project = Project.new(project_params)
     @project.user_id = current_user.id if current_user
     if @project.save
