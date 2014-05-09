@@ -4,19 +4,26 @@
 	<%= link_to 'New', new_project_path %><br><br>
 </div>
 
-<div class="row">
-	<% @projects.each do |x| %>
+<<<<<<< HEAD
 
+	<% @projects.each do |x| %>
+<div class="row">
 	<div class="projects_listed large-4 columns">
 		<strong><%= x.name %></strong><br>
 		Description: <%= x.description %><br>
 		id: <%= x.id %><br>
-		<%= image_tag x.image %><br>
+		<%= image_tag x.image.thumb.url %><br>
 		<%= link_to 'Show', project_path(x.id) %>
-		<br>
+
+<div class="row" id="projects">
+
+
+	<%= render @projects %>
+	<div style="margin-top: 50px;">
+		<%= paginate @projects %>
+
 	</div>
 
-	<% end %>
-	<%= paginate @projects %>
+
 </div>
 

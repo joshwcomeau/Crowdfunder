@@ -3,6 +3,11 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.page(params[:page])
 
+    respond_to do |format|
+      format.js 
+      format.html
+    end
+
     @projects.each do |x|
       if x.finish_date == Date.today
         #x.destroy
