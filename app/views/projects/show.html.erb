@@ -1,3 +1,9 @@
+
+	<div id="pledge_confirmation">
+		<h2></h2>
+		<p></p>
+	</div>
+
 	<div class='row'>
 		<table class="project_details large-6 columns">
 			<h1><%= @project.name %></h1>		
@@ -6,7 +12,7 @@
 			<tr><td>Days remaining: </td><td><%= @days_remaining %></td></tr>	
 		</table>
 		<div class="project_funding large-6 columns">
-			<%= @project.funded %>
+			<span id="project_funded_amount"><%= @project.funded %></span>
 		</div>
 	</div>
 </div>
@@ -24,6 +30,7 @@
 		<% end %>
 		<% end %>
 		<% end %>
+
 
 		<div class="pledge_form" style="text-align: left; margin-top: 50px; display: none;">
 			
@@ -47,9 +54,9 @@
 		<% @project.tiers.each do |b| %>
 		<div class="project_reward_tier" id="tier_<%= b.id %>">
 			Pledge $<span class="tier_amount"><%= b.amount %></span> or more<br>
-			Backers: <%= b.pledges.count %><br>
+			Backers: <span class="tier_backers"><%= b.pledges.count %></span><br>
 
-			Sum: <%= @tier_total_money_backed = b.pledges.inject(0) {|sum, pledge| sum + pledge.amount} %><br>
+			Sum: <span class="tier_sum"><%=  @tier_total_money_backed = b.pledges.inject(0) {|sum, pledge| sum + pledge.amount} %></span><br>
 			<span class="tier_description"><%= b.tier_description %></span>
 			
 		</div>
