@@ -46,18 +46,18 @@
 
 	<div class="project_reward_tiers">
 		<% @project.tiers.each do |b| %>
-		<br><div class="project_reward_tier" id="tier_<%= b.id %>">
+		<br><br><div class="project_reward_tier" id="tier_<%= b.id %>">
 			Pledge $<span class="tier_amount"><%= b.amount %></span> or more<br><br>
 			Backers: <%= b.pledges.count %><br><br>
 
 			Sum: <%= @tier_total_money_backed = b.pledges.inject(0) {|sum, pledge| sum + pledge.amount} %><br><br>
-			<span class="tier_description"><strong>Reward:</strong> <%= b.tier_description %></span><br><br><br>
+			<span class="tier_description"><strong>Reward:</strong> <%= b.tier_description %></span><br><br>
 			
 		</div>
 		<% end %>			
 	</div>
 	<%= render 'layouts/editdestroyproject' %>
-	<%= link_to "< Return home", projects_path %>
+	<%= link_to "< Return home", projects_path, class: 'return_home' %>
 	<script>
 	</script>
 
