@@ -56,11 +56,10 @@ $(document).ready(function(){
 
     }).done(function(data) {
 
-      console.log(data);
+      $(".pledge_form").hide();
 
       var tierDiv = $("#tier_"+data.tierID);
 
-      console.log(tierDiv);
 
       tierDiv.children(".tier_backers").html(data.backers);
       tierDiv.children(".tier_sum").html(data.tierSum);
@@ -70,6 +69,8 @@ $(document).ready(function(){
       $("#pledge_confirmation").children("p").html(data.msg);
 
       $("#pledge_confirmation").fadeIn(250).delay(2000).slideUp(1000);
+
+
 
 
 
