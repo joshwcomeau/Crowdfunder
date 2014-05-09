@@ -37,12 +37,65 @@ $(document).ready(function(){
     $("#pledge_tier_id").val(tierID);
     $("#pledge_amount").val(tierAmount);      
     $(".pledge_form").show(500);
-
-
-
-    
-
-
   });
 
+
+  $("#new_pledge").submit(function(event) {
+    var pledgeAmount = $("#pledge_amount"),
+        tierID = $("#pledge_tier_id");
+
+    event.preventDefault();
+    $.ajax({
+      url: $(this).attr("action"),
+      type: "POST",
+      dataType: 'json',
+      data: $( this ).serialize(),
+      error: function (jqXHR, textStatus, errorThrown) {
+        alert("jqXHR: " + jqXHR.status + "\ntextStatus: " + textStatus + "\nerrorThrown: " + errorThrown);
+      }
+
+    }).done(function(data) {
+
+      console.log(data);
+
+      var tierDiv = $("#tier_"+data.tierID);
+
+      console.log(tierDiv);
+
+      tierDiv.children(".tier_backers").html(data.backers);
+      tierDiv.children(".tier_sum").html(data.tierSum);
+      $("#project_funded_amount").html(data.funded)
+
+      $("#pledge_confirmation").children("h2").html(data.msgHeader);
+      $("#pledge_confirmation").children("p").html(data.msg);
+
+      $("#pledge_confirmation").fadeIn(250).delay(2000).slideUp(1000);
+
+
+
+    });
+  });
+
+
+
+
+
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
