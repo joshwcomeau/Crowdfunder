@@ -1,5 +1,2 @@
-$('#projects').html("<%= j render (@projects) %>")
-
-$('#projects').append("<%= j render(@projects) %>");
-
-$('.pagination').replaceWith("<%= j paginate(@projects) %>");
+$('#projects').append('<%= j render(@projects) %>');
+$('.pagination').replaceWith('<%= j paginate(@projects) %>');

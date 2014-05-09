@@ -19,6 +19,8 @@
 $(function(){ $(document).foundation(); });
 
 $(document).ready(function(){
+
+  // Decoration for project tier mouseover
 	$('.project_reward_tier').mouseenter(function(){
 		$(this).css("background-color", "#97d596");
 	});
@@ -26,6 +28,8 @@ $(document).ready(function(){
 		$(this).css("background-color", "#E6F0D9");
 	});
 
+
+  // Show form for pledging
   $(".project_reward_tier").click(function() {
 
     var tierText = $(this).children(".tier_description").html(),
@@ -40,6 +44,7 @@ $(document).ready(function(){
   });
 
 
+  // AJAX submit pledge
   $("#new_pledge").submit(function(event) {
     var pledgeAmount = $("#pledge_amount"),
         tierID = $("#pledge_tier_id");
@@ -69,14 +74,17 @@ $(document).ready(function(){
       $("#pledge_confirmation").children("p").html(data.msg);
 
       $("#pledge_confirmation").fadeIn(250).delay(2000).slideUp(1000);
-
-
-
-
-
     });
   });
-
+ 
+    $(window).scroll(function() {
+      var url = $('.pagination span.next').children().attr('href');
+      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        $('.pagination').html("Fetching more products...");
+        console.log(url);
+        return $.getScript(url);
+      }
+    });
 
 
 
