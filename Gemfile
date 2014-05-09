@@ -56,6 +56,6 @@ gem 'cocoon'
 gem 'sorcery'
 
 gem 'carrierwave'
-#gem 'rmagick'
+gem 'rmagick'
 
 gem 'kaminari'
